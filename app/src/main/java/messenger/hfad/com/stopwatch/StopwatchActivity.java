@@ -27,16 +27,16 @@ public class StopwatchActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (wasRunning){
-            running = true;
-        }
+        wasRunning = running;
+        running = false;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        wasRunning = running;
-        running = false;
+        if (wasRunning){
+            running = true;
+        }
     }
 
 //    @Override
